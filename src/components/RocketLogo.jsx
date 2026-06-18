@@ -10,7 +10,9 @@
 // dark (navy) surfaces; `tone="dark"` uses the original navy mark. Also reused
 // as the hero's launching rocket.
 export function RocketMark({ tone = 'dark', className = '', alt = 'Blast Off Cleaning rocket', ...props }) {
-  const src = tone === 'light' ? '/rocket-white.png' : '/rocket-navy.png'
+  // Resolve against the deploy base so the image loads at the root or a subpath.
+  const file = tone === 'light' ? 'rocket-white.png' : 'rocket-navy.png'
+  const src = `${import.meta.env.BASE_URL}${file}`
   return <img src={src} alt={alt} className={className} {...props} />
 }
 

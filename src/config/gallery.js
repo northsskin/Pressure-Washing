@@ -12,23 +12,27 @@
 //  soon" placeholder for each slot — no fake imagery is shown.
 // ─────────────────────────────────────────────────────────────────────────
 
+// Resolve paths against the deploy base (root or subpath) so images load
+// wherever the site is hosted.
+const base = import.meta.env.BASE_URL
+
 export const GALLERY = [
   {
     id: 'driveway-1',
     label: 'Driveway',
-    before: '/assets/gallery/driveway-1-before.jpg',
-    after: '/assets/gallery/driveway-1-after.jpg',
+    before: `${base}assets/gallery/driveway-1-before.jpg`,
+    after: `${base}assets/gallery/driveway-1-after.jpg`,
   },
   {
     id: 'patio-1',
     label: 'Patio',
-    before: '/assets/gallery/patio-1-before.jpg',
-    after: '/assets/gallery/patio-1-after.jpg',
+    before: `${base}assets/gallery/patio-1-before.jpg`,
+    after: `${base}assets/gallery/patio-1-after.jpg`,
   },
   {
     id: 'deck-1',
     label: 'Deck',
-    before: '/assets/gallery/deck-1-before.jpg',
-    after: '/assets/gallery/deck-1-after.jpg',
+    before: `${base}assets/gallery/deck-1-before.jpg`,
+    after: `${base}assets/gallery/deck-1-after.jpg`,
   },
 ]
