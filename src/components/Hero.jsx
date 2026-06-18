@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
-import { RocketIcon } from './RocketLogo'
+import { RocketMark } from './RocketLogo'
 import { smsLink } from '../config/business'
 
 const ease = [0.22, 1, 0.36, 1]
@@ -57,9 +57,11 @@ export default function Hero() {
 
       {/* Static resting rocket for reduced-motion users */}
       {reduce && (
-        <RocketIcon
-          className="pointer-events-none absolute bottom-10 left-1/2 h-24 w-auto -translate-x-1/2 opacity-90"
+        <RocketMark
+          tone="light"
+          alt=""
           aria-hidden="true"
+          className="pointer-events-none absolute bottom-10 left-1/2 h-28 w-auto -translate-x-1/2 opacity-90"
         />
       )}
 
@@ -125,14 +127,14 @@ function LaunchLayer({ launchDistance }) {
         preserveAspectRatio="none"
       >
         <motion.path
-          d="M50 100 C 47 78, 41 60, 38 44 S 33 14, 30 -5"
+          d="M50 100 C 50 78, 53 52, 55 30 S 57 4, 57 -8"
           fill="none"
           stroke="#4A90D9"
-          strokeWidth="0.6"
+          strokeWidth="0.5"
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
-          initial={{ pathLength: 0, opacity: 0.9 }}
-          animate={{ pathLength: 1, opacity: [0.9, 0.9, 0.5] }}
+          initial={{ pathLength: 0, opacity: 0.8 }}
+          animate={{ pathLength: 1, opacity: [0.8, 0.8, 0.45] }}
           transition={{
             pathLength: { delay: liftStart, duration: riseDuration, ease: 'easeIn' },
             opacity: { delay: liftStart, duration: riseDuration + 0.6 },
@@ -148,8 +150,8 @@ function LaunchLayer({ launchDistance }) {
         initial={{ y: 0, x: '-50%', rotate: 0 }}
         animate={{
           y: [0, 6, -launchDistance],
-          x: ['-50%', '-50%', '-120%'],
-          rotate: [0, 0, -10],
+          x: ['-50%', '-50%', '-38%'],
+          rotate: [0, 0, 4],
         }}
         transition={{
           delay: liftStart - 0.4,
@@ -158,7 +160,12 @@ function LaunchLayer({ launchDistance }) {
           ease: ['easeInOut', 'easeIn'],
         }}
       >
-        <RocketIcon className="h-24 w-auto drop-shadow-[0_0_24px_rgba(74,144,217,0.5)]" aria-hidden="true" />
+        <RocketMark
+          tone="light"
+          alt=""
+          aria-hidden="true"
+          className="h-28 w-auto drop-shadow-[0_0_24px_rgba(74,144,217,0.45)]"
+        />
       </motion.div>
 
       {/* Droplets breaking off the trail and fading as the rocket climbs. */}
@@ -169,7 +176,7 @@ function LaunchLayer({ launchDistance }) {
           className="absolute bottom-16 left-1/2 block rounded-full bg-spray"
           style={{ width: d.size, height: d.size }}
           initial={{ opacity: 0, x: '-50%', y: 0 }}
-          animate={{ opacity: [0, 0.9, 0], x: d.x, y: d.y }}
+          animate={{ opacity: [0, 0.55, 0], x: d.x, y: d.y }}
           transition={{
             delay: liftStart + d.delay,
             duration: 1.4,
@@ -182,11 +189,9 @@ function LaunchLayer({ launchDistance }) {
 }
 
 const DROPLETS = [
-  { size: 8, x: '-160%', y: -120, delay: 0.1 },
-  { size: 6, x: '60%', y: -180, delay: 0.25 },
-  { size: 10, x: '-260%', y: -240, delay: 0.4 },
-  { size: 5, x: '120%', y: -300, delay: 0.55 },
-  { size: 7, x: '-360%', y: -360, delay: 0.7 },
+  { size: 7, x: '-160%', y: -130, delay: 0.15 },
+  { size: 5, x: '70%', y: -200, delay: 0.3 },
+  { size: 8, x: '-260%', y: -270, delay: 0.5 },
 ]
 
 // Faint star-field rendered once. Static dots (twinkle is skipped for

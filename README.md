@@ -34,9 +34,9 @@ the lead off to SMS so nothing is lost.
 
 ## Logo & photos
 
-- **`/public/logo.png`** — drop the real full-lockup logo here for social
-  sharing (see `public/LOGO_NOTE.md`). The on-page mark is an inline SVG so it
-  stays crisp and animates in the hero; `logo.svg` is the fallback.
+- **Logo** — the real logo is in `/public/logo.png` (used for social sharing).
+  The on-page mark (`rocket-navy.png` / `rocket-white.png`) and `favicon.png`
+  are derived from it. See `public/LOGO_NOTE.md`.
 - **Before/after photos** — `src/config/gallery.js` is wired to three slots.
   Real job photos go in `public/assets/gallery/` (see the README there). No
   stock or stand-in images are used — empty slots show a clearly labeled

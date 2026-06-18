@@ -11,24 +11,25 @@
 // ─────────────────────────────────────────────────────────────────────────
 
 // Digits only is fine for display; the tel:/sms: links are normalized below.
-export const PHONE_NUMBER = '[914-640-9773]'
+export const PHONE_NUMBER = '914-640-9773'
 
 // Town / region shown in the footer and hero copy.
-export const SERVICE_AREA = '[Scarsdale]'
+export const SERVICE_AREA = 'Scarsdale'
 
 // Social — handle is shown to users; the URL is what the icon links to.
+// Still placeholders — replace the bracketed values (and drop the brackets)
+// once the business's social accounts exist.
 export const INSTAGRAM_HANDLE = '[@blastoffcleaning]'
 export const INSTAGRAM_URL = '[https://instagram.com/blastoffcleaning]'
 export const FACEBOOK_URL = '[https://facebook.com/blastoffcleaning]'
 
 // Formspree (https://formspree.io) — create a free form and paste the form ID
 // here, e.g. "xeqyabcd". The contact form POSTs to https://formspree.io/f/<id>.
-// Until this is filled in, the form falls back to an sms: handoff so no lead
-// is ever lost.
+// Not set up yet, so the form falls back to an sms: handoff — no lead is lost.
 export const FORMSPREE_ENDPOINT = '[your-formspree-id]'
 
 // Used in the footer copyright line.
-export const CURRENT_YEAR = '[2026]'
+export const CURRENT_YEAR = '2026'
 
 // ── Derived helpers ────────────────────────────────────────────────────────
 

@@ -1,14 +1,18 @@
 # Logo assets
 
-The site renders the rocket mark as an inline SVG (`src/components/RocketLogo.jsx`)
-so it stays crisp and can be animated in the hero. For sharing/raster needs:
+The client's real logo is in place: **`/public/logo.png`** (full lockup, navy
+rocket with water-spray trail + "BLAST OFF / CLEANING"). It's used for the
+Open Graph / social-share preview in `index.html`.
 
-- **`/public/logo.png`** — drop the real full-lockup PNG (navy rocket + "BLAST
-  OFF" / "CLEANING", transparent background) here. It's referenced by the
-  Open Graph / social-share meta tags in `index.html`. Until it's added,
-  `logo.svg` is the on-disk fallback.
-- **`/public/favicon.png`** — optional square icon-only crop. A vector
-  `favicon.svg` is already in place and used first; add the PNG only if you
-  need raster fallback for older browsers.
+The on-page mark is derived from that file so it can be tone-adaptive and
+animated:
 
-Replacing these two files requires no code changes.
+- **`rocket-navy.png`** / **`rocket-white.png`** — the rocket mark with its
+  background removed, in navy (for light surfaces) and white (for dark navy
+  surfaces). Used in the nav, footer, and the hero launch animation.
+- **`favicon.png`** — square browser-tab icon, cropped from the same mark.
+
+These derived files were generated from `logo.png`. If the logo is ever
+replaced, regenerate them (background-key + recolor + crop) or hand-export
+equivalents at similar dimensions — no code changes needed as long as the
+filenames stay the same.
