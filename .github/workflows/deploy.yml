@@ -1,0 +1,65 @@
+name: Deploy to GitHub Pages
+
+# GitHub Pages can't build a Vite/React app — it only serves static files.
+# This workflow builds the app (npm run build) and publishes the generated
+# dist/ folder to Pages. Serving the repo source directly is what caused the
+# blank white page (the browser can't run /src/main.jsx).
+
+on:
+  push:
+    branches:
+      - main
+      - claude/blast-off-cleaning-site-c55yjf
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; newer pushes cancel in-progress runs.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # Disable Jekyll so Pages serves the build output verbatim.
+      - name: Add .nojekyll
+        run: touch dist/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

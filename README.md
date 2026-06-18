@@ -15,6 +15,25 @@ npm run build    # production build → dist/
 npm run preview  # preview the production build
 ```
 
+## Deploying (GitHub Pages)
+
+GitHub Pages can't build a Vite app — it only serves static files — so the
+site must be **built** first and the `dist/` output served. This repo includes
+a workflow (`.github/workflows/deploy.yml`) that does that automatically.
+
+**One-time setup:** in the repo on GitHub, go to **Settings → Pages → Build
+and deployment → Source** and choose **GitHub Actions** (not "Deploy from a
+branch"). After that, every push builds and deploys the site automatically;
+watch progress under the **Actions** tab.
+
+> Serving the repository source directly (the previous setup) is what caused
+> the blank white page — the browser was handed `/src/main.jsx`, which it can't
+> run. Always deploy the built `dist/` output, which the workflow handles.
+
+Hosting elsewhere (Netlify, Vercel, etc.)? Use build command `npm run build`
+and publish directory `dist`. Asset paths are relative, so root or subpath
+both work.
+
 ## Editing the business details (one file)
 
 Everything specific to the business lives in **`src/config/business.js`** —
