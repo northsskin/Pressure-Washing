@@ -1,0 +1,19 @@
+<svg viewBox="0 0 320 96" xmlns="http://www.w3.org/2000/svg" font-family="'Clash Display','Arial',sans-serif">
+  <!-- Full lockup fallback. The owner can replace /public/logo.png with the
+       real raster logo for social sharing; this SVG keeps things working and
+       crisp in the meantime. -->
+  <g transform="translate(8,8)">
+    <path d="M22 44c-6 2-10 7-11 14 5-1 9-3 12-6z" fill="#16365C"/>
+    <path d="M42 44c6 2 10 7 11 14-5-1-9-3-12-6z" fill="#16365C"/>
+    <path d="M32 4c8 6 13 16 13 28 0 6-1 11-3 16H22c-2-5-3-10-3-16C19 20 24 10 32 4z" fill="#0B1F3A"/>
+    <circle cx="32" cy="27" r="6.5" fill="#4A90D9"/>
+    <circle cx="32" cy="27" r="3" fill="#F6F8FB"/>
+    <g fill="#4A90D9">
+      <circle cx="32" cy="58" r="2.4"/>
+      <circle cx="25" cy="66" r="1.8" opacity="0.8"/>
+      <circle cx="39" cy="66" r="1.8" opacity="0.8"/>
+    </g>
+  </g>
+  <text x="78" y="48" font-size="34" font-weight="700" letter-spacing="-1" fill="#0B1F3A">BLAST OFF</text>
+  <text x="80" y="70" font-family="'JetBrains Mono',monospace" font-size="12" letter-spacing="6" fill="#5B6B7F">CLEANING</text>
+</svg>

@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Offset anchor jumps so the sticky nav doesn't cover section headings. */
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-white font-body text-slate-600 antialiased;
+    font-size: 1rem; /* Body mobile */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @screen md {
+    body {
+      font-size: 1.125rem; /* Body desktop */
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-navy-900;
+    text-wrap: balance;
+  }
+
+  /* Visible, on-brand focus state for every interactive element — replaces
+     the browser default with an ignition-orange ring. */
+  :focus-visible {
+    outline: 3px solid theme('colors.ignition');
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Respect reduced-motion globally: kill smooth scroll + any leftover
+     transitions for users who ask for less movement. Component-level launch
+     animation is also gated in JS. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* ── Type scale helpers (desktop / mobile via responsive prefixes) ── */
+  .text-h1 {
+    @apply font-display font-semibold tracking-tightest;
+    font-size: 2.75rem;
+    line-height: 1.05;
+  }
+  .text-h2 {
+    @apply font-display font-semibold tracking-tightest;
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+  .text-h3 {
+    @apply font-body font-semibold;
+    font-size: 1.25rem;
+    line-height: 1.25;
+  }
+  @screen md {
+    .text-h1 {
+      font-size: 4.5rem;
+    }
+    .text-h2 {
+      font-size: 2.75rem;
+    }
+    .text-h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Mono eyebrow / telemetry label */
+  .eyebrow {
+    @apply font-mono uppercase text-spray;
+    font-size: 0.875rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* Section rhythm: 3.5rem mobile / 6rem desktop vertical padding */
+  .section {
+    @apply px-5 py-14 md:px-8 md:py-24;
+  }
+  .section-inner {
+    @apply mx-auto w-full max-w-content;
+  }
+
+  /* Primary CTA — the one place ignition-orange floods a surface (a button). */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ignition px-7 py-3.5
+      font-body font-semibold text-white shadow-card transition-transform duration-200;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-200
+      bg-transparent px-7 py-3.5 font-body font-semibold transition-colors duration-200;
+  }
+}

@@ -1,0 +1,49 @@
+# Blast Off Cleaning
+
+Single-page marketing site for Blast Off Cleaning, a local pressure washing
+business. Navy-and-white brand with a rocket-meets-water concept; one
+orchestrated hero launch animation, otherwise restrained motion.
+
+Built with **React + Vite**, **Tailwind CSS**, and **Framer Motion**.
+
+## Run it
+
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # production build → dist/
+npm run preview  # preview the production build
+```
+
+## Editing the business details (one file)
+
+Everything specific to the business lives in **`src/config/business.js`** —
+phone number, service area, social links, Formspree form ID, and year. Replace
+the bracketed placeholder values (drop the brackets) with the real values.
+These are the *only* placeholders in the project.
+
+The hero "Get a Free Quote" button and the "Prefer to text?" link open the
+visitor's messaging app via an `sms:` deep link with a pre-filled message,
+since the business runs on texting customers directly.
+
+## The contact form
+
+The form posts to [Formspree](https://formspree.io) (free, no backend). Until
+you paste a real form ID into `FORMSPREE_ENDPOINT`, the form gracefully hands
+the lead off to SMS so nothing is lost.
+
+## Logo & photos
+
+- **`/public/logo.png`** — drop the real full-lockup logo here for social
+  sharing (see `public/LOGO_NOTE.md`). The on-page mark is an inline SVG so it
+  stays crisp and animates in the hero; `logo.svg` is the fallback.
+- **Before/after photos** — `src/config/gallery.js` is wired to three slots.
+  Real job photos go in `public/assets/gallery/` (see the README there). No
+  stock or stand-in images are used — empty slots show a clearly labeled
+  "coming soon" placeholder.
+
+## Brand tokens
+
+Colors and type are defined in `tailwind.config.js`. Tailwind's default
+palette is intentionally removed — every color maps to a named brand token
+(navy, spray, cloud, ignition, slate).
